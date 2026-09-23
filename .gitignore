@@ -9,6 +9,8 @@
 
 # ── Local-only Claude Code state ─────────────────────────────────────────────
 CLAUDE.local.md
+# maintainer-only tooling (ship script, blocklist, ship log)
+.local/
 .claude/settings.local.json
 .claude/worktrees/
 # vendored skill (reinstall: npx impeccable skills install)
