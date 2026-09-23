@@ -1,0 +1,15 @@
+node_modules
+dist
+dev-dist
+release
+build
+.git
+.github
+.claude
+.vscode
+*.log
+.env
+.env.*
+*.har
+.cron-secret.txt
+npm-debug.log*

@@ -1,0 +1,239 @@
+@import '@fontsource-variable/inter';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Surface — warm off-white, never pure */
+    --background: 40 24% 98%;
+    --foreground: 222 25% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 25% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 25% 12%;
+
+    /* Accent — single indigo, used for primary actions only */
+    --primary: 243 75% 59%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 222 25% 12%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 10% 42%;
+    --accent: 220 14% 94%;
+    --accent-foreground: 222 25% 12%;
+
+    /* Semantic colors — the bright fills used for dots, icons, borders, badges. */
+    --success: 142 71% 35%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 48%;
+    --warning-foreground: 0 0% 100%;
+    --destructive: 0 72% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Semantic *text* colors. The bright fills above fail WCAG AA as small text
+       on light surfaces (amber ~2.3:1, green ~3.6:1), so colored text routes
+       through these darker `-ink` variants instead (all clear 4.5:1). */
+    --success-ink: 142 72% 27%;
+    --warning-ink: 38 95% 30%;
+    --destructive-ink: 0 72% 42%;
+
+    /* Borders — very low contrast */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 243 75% 59%;
+
+    /* Sidebar surface — slightly darker than background, no border */
+    --sidebar: 220 14% 96%;
+    --sidebar-foreground: 222 25% 12%;
+    --sidebar-accent: 220 14% 90%;
+
+    /* Radius scale. --radius is the control radius (buttons, inputs, selects
+       = Tailwind `rounded-md`); `rounded-sm` is 2px tighter (menu items,
+       kbd), `rounded-lg` 4px looser (panels, popovers, dialogs). Cards and
+       the bottom nav have their own tokens. Layout variations override these. */
+    --radius: 0.5rem;
+    --radius-card: 1.25rem;
+    --radius-nav: 1.5rem;
+    --nav-inset: 0.75rem; /* margin around the floating bottom nav */
+
+    /* Categorical chart palette. Deliberately avoids the red / amber / green
+       state hues so a chart slice never reads as a warning. Ordered for
+       adjacent-slice contrast. */
+    --chart-1: 243 60% 58%;
+    --chart-2: 199 75% 40%;
+    --chart-3: 275 45% 56%;
+    --chart-4: 215 18% 48%;
+    --chart-5: 320 38% 52%;
+    --chart-6: 186 50% 34%;
+  }
+
+  .dark {
+    --background: 222 18% 8%;
+    --foreground: 220 14% 96%;
+    --card: 222 16% 11%;
+    --card-foreground: 220 14% 96%;
+    --popover: 222 16% 11%;
+    --popover-foreground: 220 14% 96%;
+
+    --primary: 243 80% 68%;
+    --primary-foreground: 222 18% 8%;
+
+    --secondary: 222 14% 16%;
+    --secondary-foreground: 220 14% 96%;
+    --muted: 222 14% 16%;
+    --muted-foreground: 220 9% 60%;
+    --accent: 222 14% 18%;
+    --accent-foreground: 220 14% 96%;
+
+    --success: 142 60% 45%;
+    --success-foreground: 222 18% 8%;
+    --warning: 38 85% 55%;
+    --warning-foreground: 222 18% 8%;
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 220 14% 96%;
+
+    /* On dark surfaces, semantic text needs to be lighter, not darker. */
+    --success-ink: 142 55% 62%;
+    --warning-ink: 38 90% 62%;
+    --destructive-ink: 0 80% 70%;
+
+    --border: 222 14% 18%;
+    --input: 222 14% 18%;
+    --ring: 243 80% 68%;
+
+    --sidebar: 222 18% 6%;
+    --sidebar-foreground: 220 14% 96%;
+    --sidebar-accent: 222 14% 14%;
+
+    --chart-1: 243 75% 72%;
+    --chart-2: 199 70% 58%;
+    --chart-3: 275 55% 70%;
+    --chart-4: 215 15% 62%;
+    --chart-5: 320 45% 66%;
+    --chart-6: 186 45% 52%;
+  }
+
+  /* A user-picked brand color. useApplyAppearance writes a light and a dark
+     variant (each contrast-checked against that mode's background) as inline
+     custom properties and adds `.has-brand`; these rules pick the one for the
+     active mode. */
+  :root.has-brand {
+    --primary: var(--brand);
+    --ring: var(--brand);
+    --primary-foreground: var(--brand-foreground);
+  }
+  :root.has-brand.dark {
+    --primary: var(--brand-dark);
+    --ring: var(--brand-dark);
+    --primary-foreground: var(--brand-dark-foreground);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family:
+      'Inter Variable',
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      sans-serif;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+  /* Tabular numerals everywhere money lives */
+  .tabular-nums,
+  [data-tabular] {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum';
+  }
+
+  /* Native date/time + number inputs render taller, mis-aligned, and add
+     spinner chrome (worst on iOS, where the intrinsic height ignores the height
+     we set and makes the field stick out, breaking the form's rhythm). Strip
+     the native appearance so they match the text inputs' height and padding. */
+  input[type='date'],
+  input[type='datetime-local'],
+  input[type='time'],
+  input[type='month'] {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  input[type='date']::-webkit-date-and-time-value,
+  input[type='datetime-local']::-webkit-date-and-time-value,
+  input[type='time']::-webkit-date-and-time-value {
+    margin: 0;
+    text-align: left;
+  }
+  input[type='date']::-webkit-calendar-picker-indicator {
+    margin-inline-start: auto;
+  }
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+/* Reduced motion — neutralize CSS animations/transitions for users who ask for
+   it. framer-motion is handled separately via <MotionConfig reducedMotion="user">
+   and useReducedMotion in the count-up. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@layer components {
+  /* Floating bottom tab bar. Shape (radius + inset) is token driven so a
+     variation can turn the island into a flush bar by zeroing the inset. */
+  .bottom-nav-bar {
+    border-radius: var(--radius-nav);
+    margin: 0 var(--nav-inset) calc(var(--nav-inset) + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* =========================================================================
+ *  Layout themes — user-pickable visual variants
+ *
+ *  Applied as a class on <html>. Each theme only overrides tokens (plus the
+ *  Crisp shadow reset). Colors (brand + light/dark mode) are independent and
+ *  layer on top of whichever layout is active.
+ * ======================================================================= */
+
+/* Default (soft, rounded, warm off-white) — matches the base :root.
+   No overrides needed. */
+
+/* Crisp (id: sharp) — tight corners, no shadows, firm borders, and a flush,
+   full-width bottom bar. */
+.layout-sharp {
+  --radius: 0.25rem;
+  --radius-card: 0.4rem;
+  --radius-nav: 0;
+  --nav-inset: 0;
+  --border: 220 13% 84%;
+}
+.layout-sharp.dark {
+  --border: 222 14% 24%;
+}
+.layout-sharp .shadow-sm,
+.layout-sharp .shadow,
+.layout-sharp .shadow-md,
+.layout-sharp .shadow-lg,
+.layout-sharp .shadow-xl,
+.layout-sharp .shadow-2xl {
+  box-shadow: none;
+}

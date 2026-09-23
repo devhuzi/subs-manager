@@ -1,0 +1,5 @@
+# Files to copy into a new git worktree.
+# These are gitignored but needed for the project to run.
+.env
+.env.local
+.claude/settings.local.json

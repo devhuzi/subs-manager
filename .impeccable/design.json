@@ -1,0 +1,292 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-23",
+  "title": "Design System: Tools & Subs Manager",
+  "extensions": {
+    "colorMeta": {
+      "indigo": {
+        "role": "primary",
+        "displayName": "Signal Indigo",
+        "canonical": "hsl(243 75% 59%)",
+        "tonalRamp": [
+          "hsl(243 60% 18%)",
+          "hsl(243 64% 27%)",
+          "hsl(243 68% 36%)",
+          "hsl(243 72% 47%)",
+          "hsl(243 75% 59%)",
+          "hsl(243 78% 70%)",
+          "hsl(243 80% 82%)",
+          "hsl(243 82% 93%)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "hsl(222 25% 12%)",
+        "tonalRamp": [
+          "hsl(222 25% 8%)",
+          "hsl(222 25% 12%)",
+          "hsl(222 22% 20%)",
+          "hsl(222 18% 32%)",
+          "hsl(220 12% 46%)",
+          "hsl(220 12% 64%)",
+          "hsl(220 14% 82%)",
+          "hsl(220 14% 96%)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Warm Paper",
+        "canonical": "hsl(40 24% 98%)",
+        "tonalRamp": [
+          "hsl(40 10% 20%)",
+          "hsl(40 12% 34%)",
+          "hsl(40 14% 50%)",
+          "hsl(40 16% 66%)",
+          "hsl(40 18% 80%)",
+          "hsl(40 20% 90%)",
+          "hsl(40 22% 95%)",
+          "hsl(40 24% 98%)"
+        ]
+      },
+      "success": {
+        "role": "tertiary",
+        "displayName": "Success Green",
+        "canonical": "hsl(142 71% 35%)",
+        "tonalRamp": [
+          "hsl(142 71% 12%)",
+          "hsl(142 71% 20%)",
+          "hsl(142 71% 28%)",
+          "hsl(142 71% 35%)",
+          "hsl(142 60% 45%)",
+          "hsl(142 55% 60%)",
+          "hsl(142 55% 78%)",
+          "hsl(142 55% 92%)"
+        ]
+      },
+      "warning": {
+        "role": "tertiary",
+        "displayName": "Warning Amber",
+        "canonical": "hsl(38 92% 48%)"
+      },
+      "destructive": {
+        "role": "tertiary",
+        "displayName": "Destructive Red",
+        "canonical": "hsl(0 72% 50%)"
+      },
+      "chart": {
+        "role": "categorical",
+        "displayName": "Chart palette",
+        "light": [
+          "hsl(243 60% 58%)",
+          "hsl(199 75% 40%)",
+          "hsl(275 45% 56%)",
+          "hsl(215 18% 48%)",
+          "hsl(320 38% 52%)",
+          "hsl(186 50% 34%)"
+        ],
+        "dark": [
+          "hsl(243 75% 72%)",
+          "hsl(199 70% 58%)",
+          "hsl(275 55% 70%)",
+          "hsl(215 15% 62%)",
+          "hsl(320 45% 66%)",
+          "hsl(186 45% 52%)"
+        ],
+        "purpose": "--chart-1..6. Categorical series only; avoids red/amber/green state hues. Single-series charts use the brand accent."
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Dashboard monthly-cost figure only. One per screen."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Card titles and section heads."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Default copy and table cells; cap prose at 65-75ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Stat labels, dt terms and table headers: text-sm muted, sentence case. No uppercase eyebrows."
+      }
+    },
+    "shadows": [
+      {
+        "name": "card-rest",
+        "value": "0 1px 2px rgb(0 0 0 / 0.05)",
+        "purpose": "Barely-there lift of white cards off paper. Removed entirely in the Crisp variation."
+      },
+      {
+        "name": "floating-chrome",
+        "value": "0 10px 30px -10px rgb(0 0 0 / 0.25)",
+        "purpose": "Bottom tab bar, AI panel, popovers: elements that float above the scroll plane."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-quart",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Default easing: count-ups, entrances, list transitions. Settles fast, no bounce."
+      },
+      {
+        "name": "duration-fast",
+        "value": "150ms",
+        "purpose": "List exit / micro-interactions."
+      },
+      {
+        "name": "duration-base",
+        "value": "200ms",
+        "purpose": "Color and state transitions."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "xs",
+        "value": "480px"
+      },
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
+    ],
+    "radiusScale": {
+      "sm": "calc(var(--radius) - 2px) — menu items, kbd",
+      "md": "var(--radius) = 0.5rem (0.25rem in Crisp) — buttons, inputs, selects",
+      "lg": "calc(var(--radius) + 4px) — panels, dropdowns, inset boxes",
+      "card": "var(--radius-card) = 1.25rem (0.4rem in Crisp) — cards, sheet top corners",
+      "full": "9999px — pills"
+    },
+    "renewalUrgency": {
+      "overdue": "days < 0 — destructive ink + alert icon",
+      "imminent": "0–2 days — destructive dot + ink",
+      "soon": "3–7 days — warning dot + ink",
+      "later": "8+ days — neutral dot, muted ink"
+    },
+    "layouts": [
+      "default",
+      "sharp (Crisp)"
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The single committed action on a screen. Indigo fill, white label.",
+      "html": "<button class=\"ds-btn-primary\">Add subscription</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; height: 2.5rem; padding: 0 1rem; border: none; border-radius: 0.5rem; background: hsl(243 75% 59%); color: #fff; font: 500 0.875rem/1 'Inter Variable', system-ui, sans-serif; cursor: pointer; transition: background 200ms cubic-bezier(0.16,1,0.3,1); } .ds-btn-primary:hover { background: hsl(243 75% 53%); } .ds-btn-primary:focus-visible { outline: 2px solid hsl(243 75% 59%); outline-offset: 2px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Lower-emphasis action. Muted fill, ink label.",
+      "html": "<button class=\"ds-btn-secondary\">Back up now</button>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; height: 2.5rem; padding: 0 1rem; border: none; border-radius: 0.5rem; background: hsl(220 14% 96%); color: hsl(222 25% 12%); font: 500 0.875rem/1 'Inter Variable', system-ui, sans-serif; cursor: pointer; transition: background 200ms cubic-bezier(0.16,1,0.3,1); } .ds-btn-secondary:hover { background: hsl(220 14% 92%); } .ds-btn-secondary:focus-visible { outline: 2px solid hsl(243 75% 59%); outline-offset: 2px; }"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Flat white surface on warm paper. The base container; never nested.",
+      "html": "<div class=\"ds-card\"><div class=\"ds-card-title\">Upcoming renewals</div><div class=\"ds-card-desc\">Due in the next 30 days, plus anything overdue.</div></div>",
+      "css": ".ds-card { background: #fff; color: hsl(222 25% 12%); border: 1px solid hsl(220 13% 91%); border-radius: 1.25rem; box-shadow: 0 1px 2px rgb(0 0 0 / 0.05); padding: 1.5rem; font-family: 'Inter Variable', system-ui, sans-serif; } .ds-card-title { font-size: 1.125rem; font-weight: 600; letter-spacing: -0.01em; } .ds-card-desc { margin-top: 0.25rem; font-size: 0.875rem; color: hsl(220 9% 46%); }"
+    },
+    {
+      "name": "Stat Card",
+      "kind": "card",
+      "refersTo": "stat-card",
+      "description": "Compact metric tile: quiet label over a tabular value, optional hint. No icon chip.",
+      "html": "<div class=\"ds-stat\"><div class=\"ds-stat-label\">Monthly cost</div><div class=\"ds-stat-value\"><span class=\"ds-stat-cur\">USD</span>42.00</div></div>",
+      "css": ".ds-stat { background: #fff; border: 1px solid hsl(220 13% 91%); border-radius: 1.25rem; box-shadow: 0 1px 2px rgb(0 0 0 / 0.05); padding: 1rem 1.25rem; font-family: 'Inter Variable', system-ui, sans-serif; } .ds-stat-label { font-size: 0.875rem; color: hsl(220 10% 42%); } .ds-stat-value { margin-top: 0.5rem; font-size: 1.875rem; font-weight: 600; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; } .ds-stat-cur { font-size: 0.5em; font-weight: 500; text-transform: uppercase; color: hsl(220 10% 42%); margin-right: 0.25rem; }"
+    },
+    {
+      "name": "Segmented Filter Pills",
+      "kind": "chip",
+      "refersTo": "pill-segmented",
+      "description": "Rounded-full toggle group for a small fixed filter set. Active pill fills with the brand accent.",
+      "html": "<div class=\"ds-pills\"><button class=\"ds-pill ds-pill-on\">All</button><button class=\"ds-pill\">Active</button><button class=\"ds-pill\">Inactive</button></div>",
+      "css": ".ds-pills { display: inline-flex; gap: 0.375rem; font-family: 'Inter Variable', system-ui, sans-serif; } .ds-pill { border: none; border-radius: 9999px; padding: 0.375rem 0.75rem; font-size: 0.875rem; font-weight: 500; background: hsl(220 14% 96%); color: hsl(220 9% 46%); cursor: pointer; transition: color 200ms, background 200ms; } .ds-pill:hover { color: hsl(222 25% 12%); } .ds-pill-on { background: hsl(243 75% 59%); color: #fff; }"
+    },
+    {
+      "name": "Trend Pill",
+      "kind": "chip",
+      "refersTo": "trend-pill-up",
+      "description": "Spending up = destructive tint/ink, down = success, under 0.5% = muted \"No change\". Arrow + sign carry meaning. Hidden when data can't support a trend.",
+      "html": "<span class=\"ds-trend\"><svg viewBox=\"0 0 24 24\" width=\"12\" height=\"12\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M22 7 13.5 15.5 8.5 10.5 2 17\"/><path d=\"M16 7h6v6\"/></svg>+6.9%</span>",
+      "css": ".ds-trend { display: inline-flex; align-items: center; gap: 0.125rem; border-radius: 9999px; padding: 0.125rem 0.5rem; font: 500 0.75rem/1 'Inter Variable', system-ui, sans-serif; font-variant-numeric: tabular-nums; background: hsl(0 72% 50% / 0.1); color: hsl(0 72% 42%); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Quiet Ledger",
+    "overview": "The interface of a careful personal accountant, not a trading floor. It holds money information people glance at in short, deliberate sessions, so its job is to be legible and trustworthy at a glance and to disappear otherwise. A warm off-white paper carries flat white cards; a single indigo accent does all the pointing. Minimal and premium means subtraction: tabular, aligned numbers, hierarchy from weight and scale, a palette that stays quiet until something is genuinely time-sensitive. One token system renders across Electron, web PWA, and two layout variations (Default, Crisp).",
+    "keyCharacteristics": [
+      "Warm-neutral paper background, flat white cards, one indigo accent.",
+      "Tabular numerals everywhere money lives; numbers never fabricated.",
+      "Hierarchy from weight + scale, not borders, stripes, or color.",
+      "Calm at rest; color reserved for real urgency.",
+      "One token system across Electron, web PWA, and both layout variations."
+    ],
+    "rules": [
+      {
+        "name": "The One Voice Rule",
+        "body": "A resting screen has exactly one chromatic accent: the brand indigo. Success / warning / destructive are state colors, not decoration.",
+        "section": "colors"
+      },
+      {
+        "name": "The Dark-Mode Parity Rule",
+        "body": "A color choice isn't done until it clears AA in light and dark across both variations and a custom brand color.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tabular Money Rule",
+        "body": "Any element rendering an amount carries font-variant-numeric: tabular-nums.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-By-Default Rule",
+        "body": "Surfaces are flat at rest. Real elevation is for elements that genuinely float over content, not ordinary cards.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Fill-vs-Text Rule",
+        "body": "Bright semantic colors are for fills, dots, icons, and borders; colored text routes through the darker -ink tokens so it clears AA.",
+        "section": "colors"
+      }
+    ],
+    "dos": [
+      "Do keep one chromatic accent on a resting screen; let success/amber/red appear only for genuine state.",
+      "Do put tabular-nums on every amount and convert all totals to the single display currency.",
+      "Do drive all card corners from --radius-card and the nav from its tokens so both variations restyle one structure.",
+      "Do pair every status color with an icon, label, or position so it survives color blindness.",
+      "Do use the -ink semantic text tokens for colored text; keep bright fills for dots, icons, borders, and badges.",
+      "Do give every focusable control a visible focus-visible ring (bottom-nav, pills, chips, swatches all carry one).",
+      "Do honor reduced motion globally via MotionConfig reducedMotion=user plus a CSS prefers-reduced-motion reset; the count-up snaps via useReducedMotion.",
+      "Do verify muted-ink body text hits 4.5:1 on paper and white card, in light and dark."
+    ],
+    "donts": [
+      "Don't reach for the loud crypto/fintech look: no neon gradients, glowing charts, or hype framing.",
+      "Don't ship the generic AI-slop SaaS look: no cream/sand saturated body, no tracked-uppercase eyebrow over every section, no identical icon-card grids, no gradient text.",
+      "Don't build cluttered gray enterprise density.",
+      "Don't add bouncy, elastic, or gamified motion.",
+      "Don't use border-left/border-right greater than 1px as a colored accent stripe.",
+      "Don't nest cards or lean on heavy shadows to separate ordinary cards.",
+      "Don't use a bright semantic color as small text (text-warning ~2.3:1, text-success ~3.6:1 fail AA); use the -ink variant.",
+      "Don't fabricate a trend or metric the data can't support; hide it instead.",
+      "Don't scale buttons on hover or press; color change only.",
+      "Don't use semantic colors decoratively or hex colors outside the token system."
+    ]
+  }
+}
